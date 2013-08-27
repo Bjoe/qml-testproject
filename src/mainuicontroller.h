@@ -4,6 +4,8 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQuick/QQuickWindow>
 
+#include "planet.h"
+
 namespace qmltest {
 
 class MainUiController
@@ -19,6 +21,8 @@ private:
 
     QQmlApplicationEngine m_engine;
     QQuickWindow *m_window;
+
+    Planet *m_planet;
 };
 
 } // namespace qmltest

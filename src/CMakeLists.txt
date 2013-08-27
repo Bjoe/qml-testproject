@@ -1,6 +1,9 @@
 
 set(QT_SRCS
     mainuicontroller.cpp
+
+    planet.cpp
+    moon.cpp
 )
 
 set(RESOURCES ../resources.qrc)

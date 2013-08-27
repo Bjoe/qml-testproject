@@ -8,8 +8,11 @@ namespace qmltest {
 
 MainUiController::MainUiController()
     : m_engine(),
-      m_window(nullptr)
+      m_window(nullptr),
+      m_planet(new Planet())
 {
+    qRegisterMetaType<qmltest::Moon *>("qmltest::Moon *");
+    qRegisterMetaType<qmltest::Planet *>("qmltest::Planet *");
 }
 
 MainUiController *MainUiController::createInstance(const QString &qmlUrl)
@@ -31,7 +34,7 @@ void MainUiController::initContext()
     qDebug() << "initialize context";
     QQmlContext *context = m_engine.rootContext();
 
-
+    context->setContextProperty("planet", m_planet);
 }
 
 void MainUiController::init()
@@ -42,6 +45,10 @@ void MainUiController::init()
     m_window = qobject_cast<QQuickWindow *>(topLevel);
 
 
+    Moon *moon = new Moon(m_planet);
+    moon->setName("moon");
+    m_planet->setMoon(moon);
+    m_planet->setName("earth");
 }
 
 

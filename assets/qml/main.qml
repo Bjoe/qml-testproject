@@ -8,7 +8,16 @@ ApplicationWindow {
 
     RowLayout {
         Text {
-            text: qsTr("Hello World")
+            text: qsTr("Planet:")
+        }
+        Text {
+            text: planet.name
+        }
+        Text {
+            text: qsTr("Moon:")
+        }
+        Text {
+            text: planet.moon.name
         }
     }
 
