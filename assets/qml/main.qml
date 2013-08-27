@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import qmltest 1.0
 
 ApplicationWindow {
     width: 360
@@ -8,16 +9,10 @@ ApplicationWindow {
 
     RowLayout {
         Text {
-            text: qsTr("Planet:")
+            text: qsTr("Universe:")
         }
-        Text {
-            text: planet.name
-        }
-        Text {
-            text: qsTr("Moon:")
-        }
-        Text {
-            text: planet.moon.name
+        Universe {
+
         }
     }
 

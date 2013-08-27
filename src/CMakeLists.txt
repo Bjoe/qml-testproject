@@ -4,6 +4,7 @@ set(QT_SRCS
 
     planet.cpp
     moon.cpp
+    universe.cpp
 )
 
 set(RESOURCES ../resources.qrc)

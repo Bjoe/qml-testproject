@@ -21,8 +21,6 @@ private:
 
     QQmlApplicationEngine m_engine;
     QQuickWindow *m_window;
-
-    Planet *m_planet;
 };
 
 } // namespace qmltest
