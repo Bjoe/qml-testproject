@@ -4,8 +4,6 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQuick/QQuickWindow>
 
-#include "planet.h"
-
 namespace qmltest {
 
 class MainUiController

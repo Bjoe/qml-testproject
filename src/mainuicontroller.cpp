@@ -4,9 +4,11 @@
 #include <QUrl>
 #include <QDebug>
 
-#include <QtQml>
+#include <QQmlComponent>
 
 #include "universe.h"
+#include "planet.h"
+#include "moon.h"
 
 namespace qmltest {
 
@@ -14,14 +16,18 @@ MainUiController::MainUiController()
     : m_engine(),
       m_window(nullptr)
 {
-    qRegisterMetaType<qmltest::Moon *>("qmltest::Moon *");
-    qRegisterMetaType<qmltest::Planet *>("qmltest::Planet *");
+    //qRegisterMetaType<qmltest::Moon *>("Moon *");
+    //qRegisterMetaType<qmltest::Planet *>("Planet *");
+
 
     qmlRegisterType<Universe>("qmltest", 1, 0, "Universe");
+    qmlRegisterType<Planet>("qmltest", 1, 0, "Planet");
+    qmlRegisterType<Moon>("qmltest", 1, 0, "Moon");
 }
 
 MainUiController *MainUiController::createInstance(const QString &qmlUrl)
 {
+
     MainUiController *instance = new MainUiController();
     instance->initContext();
     instance->m_engine.load(QUrl(qmlUrl));
