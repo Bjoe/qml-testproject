@@ -2,8 +2,8 @@
 
 namespace qmltest {
 
-Universe::Universe(QObject *parent) :
-    QObject(parent),
+Universe::Universe(QQuickItem *parent) :
+    QQuickItem(parent),
     m_planet(nullptr)
 {
 }
@@ -24,7 +24,7 @@ void Universe::setPlanet(Planet *planet)
     emit planetChanged();
 }
 
-void Universe::createPlanet()
+void Universe::onCreatePlanet()
 {
     deletePlanet();
     m_planet = new Planet();

@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>assets/qml/main.qml</file>
+        <file>assets/qml/component.qml</file>
     </qresource>
 </RCC>

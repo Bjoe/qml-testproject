@@ -17,7 +17,7 @@ configure_file (
   )
 
 add_library(qmlTestProjectLib STATIC ${QT_SRCS})
-target_link_libraries(qmlTestProjectLib Qt5::Widgets Qt5::Qml)
+target_link_libraries(qmlTestProjectLib Qt5::Widgets Qt5::Qml Qt5::Quick)
 
 qt5_add_resources(QRC ${RESOURCES})
 add_executable(qmlTest main.cpp ${QRC})

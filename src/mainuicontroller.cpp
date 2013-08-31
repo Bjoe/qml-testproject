@@ -5,6 +5,7 @@
 #include <QDebug>
 
 #include <QQmlComponent>
+#include <QQuickItem>
 
 #include "universe.h"
 #include "planet.h"
@@ -52,8 +53,20 @@ void MainUiController::init()
     qDebug() << "initialize QQuickWindow";
     QList<QObject *> list = m_engine.rootObjects();
     QObject *topLevel = list.value(0);
-    m_window = qobject_cast<QQuickWindow *>(topLevel);
 
+    m_window = qobject_cast<QQuickWindow *>(topLevel);
+    QQuickItem *item = m_window->findChild<QQuickItem *>("layout");
+
+    QQmlComponent component(&m_engine, QUrl("qrc:/assets/qml/component.qml"));
+    Universe *universe = qobject_cast<Universe *>(component.create());
+    if(universe) {
+        universe->connect(m_window, SIGNAL(createPlanet()), SLOT(onCreatePlanet()));
+
+        // How can I add universe in QML ?
+
+    } else {
+        qWarning() << component.errors();
+    }
 }
 
 
